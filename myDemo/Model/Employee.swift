@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 class Employee:Decodable {
     var name:String?;
     var jobTitle:String?;

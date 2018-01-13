@@ -12,7 +12,6 @@ class EmployeeService {
     
     static var sharedEmployeeService = EmployeeService()
 
-
     func getEmployees(from urlString: String, completion: @escaping ([Employee]) -> ()) {
         
        // let url = URL.init(fileURLWithPath: urlString)
@@ -46,10 +45,6 @@ class EmployeeService {
             }
             }.resume()
         
-        
-       /* executeGetRequest(with: urlString) { (data) in  // Data received from closure
-            
-        }*/
     }
 
 

@@ -8,26 +8,30 @@
 
 import UIKit
 
-class ViewController: : UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
-    
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
     var arrEmployees:[Employee] = [Employee]()
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrEmployees.count;
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 141;
+        return CGFloat(Constants.empRowHeight)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell:EmployeeTableViewCell = tableView.dequeueReusableCell(withIdentifier: "EmployeeCell", for: indexPath) as! EmployeeTableViewCell
+        
+        if (indexPath.row % 2 == 0)
+        {
+            cell.backgroundColor = UIColor.init(red: 252/255, green: 104/255, blue:96/255, alpha: 0.8)
+        } else {
+            cell.backgroundColor = UIColor.white
+        }
         
         let employee = arrEmployees[indexPath.row] ;
         
@@ -40,18 +44,19 @@ class ViewController: : UIViewController, UITableViewDataSource, UITableViewDele
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "showDetail", sender: arrEmployees[indexPath.row])
+        performSegue(withIdentifier:  Constants.showDetailSegueID , sender: arrEmployees[indexPath.row])
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       
+        navigationController?.navigationBar.tintColor = UIColor.white
         let employeeDetailViewController = segue.destination as! EmployeeDetailViewController
         employeeDetailViewController.employee = sender as? Employee
+        
     }
     
     func loadEmployeesFromService() {
-        
-        //EmployeeService.sharedEmployeeService.getName();
-        
+
         EmployeeService.sharedEmployeeService.getEmployees(from: Constants.employeeURL) { (resEmployees : [Employee]) in   // Object received from closure
             self.arrEmployees = resEmployees
             DispatchQueue.main.async {
@@ -60,51 +65,18 @@ class ViewController: : UIViewController, UITableViewDataSource, UITableViewDele
             }
         }
         
-        
-    }
-    
-    func loadEmployees() {
-        let url = URL.init(fileURLWithPath: "/Users/vishwanathdeshmukh/Desktop/employee.json")
-        
-        //        guard let url = employeeUrl else { return }
-        
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if error != nil { print(error ?? "Error")  } else {
-                do {
-                    guard let data = data else { return }
-                    
-                    let res = try JSONDecoder().decode(Response.self, from: data)
-                    let resEmployees:[Employee] = res.employees!
-                    
-                    
-                    
-                    self.arrEmployees = resEmployees
-                    
-                    for emp in self.arrEmployees {
-                        guard let name = emp.name else { return };
-                        print("User Name: \(name) \n")
-                        
-                        guard let userId = emp.userId else { return };
-                        print("User Name: \(userId) \n")
-                        
-                    }
-                    OperationQueue.main.addOperation {
-                        self.tableView.reloadData()
-                    }
-                } catch let jsonError {
-                    print("Error:\(jsonError)")
-                }
-            }
-            }.resume()
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.title = "Virtusa Employees"
+        navigationController?.navigationBar.barTintColor = UIColor.getDashboardNavigationTintColor(UIColor())()
+        navigationController?.navigationBar.titleTextAttributes = UIColor.attrBackKey(UIColor())() as? [NSAttributedStringKey : Any]
+
+        self.title = Constants.dashboardTitle
         loadEmployeesFromService()
+        
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -113,4 +85,5 @@ class ViewController: : UIViewController, UITableViewDataSource, UITableViewDele
 
 
 }
+
 
