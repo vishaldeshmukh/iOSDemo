@@ -76,6 +76,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6604EF532009CC9E00252576 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 		66B500842009C8DD007EF252 = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +106,7 @@
 		66B5008F2009C8DD007EF252 /* myDemo */ = {
 			isa = PBXGroup;
 			children = (
+				6604EF532009CC9E00252576 /* Resource */,
 				66B500902009C8DD007EF252 /* AppDelegate.swift */,
 				66B500922009C8DD007EF252 /* ViewController.swift */,
 				66B500942009C8DD007EF252 /* Main.storyboard */,
