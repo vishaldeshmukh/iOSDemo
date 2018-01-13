@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6604EF582009CF3000252576 /* EmployeeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6604EF572009CF3000252576 /* EmployeeTableViewCell.swift */; };
+		6604EF5A2009CF3F00252576 /* EmployeeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6604EF592009CF3F00252576 /* EmployeeDetailViewController.swift */; };
+		6604EF5F2009CF5000252576 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6604EF5B2009CF5000252576 /* Employee.swift */; };
+		6604EF602009CF5000252576 /* EmployeeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6604EF5C2009CF5000252576 /* EmployeeService.swift */; };
+		6604EF612009CF5000252576 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6604EF5D2009CF5000252576 /* Response.swift */; };
+		661798812009D9AE00EA90BD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661798802009D9AE00EA90BD /* Constants.swift */; };
+		663B9C47200A8C440009703C /* UIColor+CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663B9C46200A8C440009703C /* UIColor+CustomColor.swift */; };
 		66B500912009C8DD007EF252 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B500902009C8DD007EF252 /* AppDelegate.swift */; };
 		66B500932009C8DD007EF252 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B500922009C8DD007EF252 /* ViewController.swift */; };
 		66B500962009C8DD007EF252 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66B500942009C8DD007EF252 /* Main.storyboard */; };
@@ -35,6 +42,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6604EF572009CF3000252576 /* EmployeeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeTableViewCell.swift; sourceTree = "<group>"; };
+		6604EF592009CF3F00252576 /* EmployeeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeDetailViewController.swift; sourceTree = "<group>"; };
+		6604EF5B2009CF5000252576 /* Employee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
+		6604EF5C2009CF5000252576 /* EmployeeService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeService.swift; sourceTree = "<group>"; };
+		6604EF5D2009CF5000252576 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		661798802009D9AE00EA90BD /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		663B9C46200A8C440009703C /* UIColor+CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+CustomColor.swift"; sourceTree = "<group>"; };
 		66B5008D2009C8DD007EF252 /* myDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66B500902009C8DD007EF252 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66B500922009C8DD007EF252 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -76,11 +90,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6604EF532009CC9E00252576 /* Resource */ = {
+		6604EF542009CE7800252576 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				6604EF592009CF3F00252576 /* EmployeeDetailViewController.swift */,
+				66B500922009C8DD007EF252 /* ViewController.swift */,
 			);
-			path = Resource;
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6604EF552009CE7B00252576 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				66B500942009C8DD007EF252 /* Main.storyboard */,
+				6604EF572009CF3000252576 /* EmployeeTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6604EF562009CE7F00252576 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6604EF5B2009CF5000252576 /* Employee.swift */,
+				6604EF5C2009CF5000252576 /* EmployeeService.swift */,
+				6604EF5D2009CF5000252576 /* Response.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		663B9C45200A8C150009703C /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				663B9C46200A8C440009703C /* UIColor+CustomColor.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
+		663B9C48200A912B0009703C /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				661798802009D9AE00EA90BD /* Constants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		66B500842009C8DD007EF252 = {
@@ -106,10 +157,12 @@
 		66B5008F2009C8DD007EF252 /* myDemo */ = {
 			isa = PBXGroup;
 			children = (
-				6604EF532009CC9E00252576 /* Resource */,
+				6604EF562009CE7F00252576 /* Model */,
+				6604EF552009CE7B00252576 /* View */,
+				6604EF542009CE7800252576 /* Controller */,
+				663B9C48200A912B0009703C /* Constants */,
+				663B9C45200A8C150009703C /* Extentions */,
 				66B500902009C8DD007EF252 /* AppDelegate.swift */,
-				66B500922009C8DD007EF252 /* ViewController.swift */,
-				66B500942009C8DD007EF252 /* Main.storyboard */,
 				66B5009A2009C8DD007EF252 /* Assets.xcassets */,
 				66B5009C2009C8DD007EF252 /* LaunchScreen.storyboard */,
 				66B5009F2009C8DD007EF252 /* Info.plist */,
@@ -270,9 +323,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6604EF612009CF5000252576 /* Response.swift in Sources */,
 				66B500992009C8DD007EF252 /* myDemo.xcdatamodeld in Sources */,
+				6604EF5F2009CF5000252576 /* Employee.swift in Sources */,
+				6604EF602009CF5000252576 /* EmployeeService.swift in Sources */,
+				6604EF582009CF3000252576 /* EmployeeTableViewCell.swift in Sources */,
 				66B500932009C8DD007EF252 /* ViewController.swift in Sources */,
 				66B500912009C8DD007EF252 /* AppDelegate.swift in Sources */,
+				6604EF5A2009CF3F00252576 /* EmployeeDetailViewController.swift in Sources */,
+				663B9C47200A8C440009703C /* UIColor+CustomColor.swift in Sources */,
+				661798812009D9AE00EA90BD /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
